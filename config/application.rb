@@ -29,5 +29,11 @@ module Webhooks
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # autoload path
+    config.paths.add 'lib', eager_load: true
+
+    # timezone
+    config.time_zone = 'Tokyo'
   end
 end
