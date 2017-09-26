@@ -6,7 +6,7 @@ class Ifttt::Locations::KitakuController < ApplicationController
 
     if can_deliver_message?(time_now)
       message = "#{ Rails.application.secrets.slack[:kitaku_message] }\nI will be arriving at Home around #{ (time_now + 30.minutes).strftime("%H:%M") }."
-      slack_push(message: message, username: "Kitaku Bot", icon_emoji: ":train:")
+      slack_push(message: message, username: "Kitaku Bot", icon_emoji: ":train:", channel: "#kitaku")
     end
 
     render json: { status: :success }
